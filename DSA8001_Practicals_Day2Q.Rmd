@@ -1,0 +1,184 @@
+---
+title: "DSA8001 - Practicals & Solutions"
+output: 
+html_notebook:
+  toc: true
+  toc_float: true
+---
+
+```{r include=FALSE}
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(car)) install.packages("car")
+library(tidyverse)
+library(car)
+```
+
+# Analysing Normally Distributed Data
+
+## Question 1
+
+Head lengths of brushtail possums follow a nearly normal distribution with mean 92.6 mm and standard deviation 3.6 mm. 
+ 
+ 1. Compute the Z-scores for possums with head lengths of 95.4 mm and 85.8 mm. 
+ 2. Use calculated Z-scores to determine how many standard deviations above or below the mean measured head lengths of these two possums fall 
+ 3. Head length of which possum is more unusual?
+
+### Solution
+## 1.1
+```{r}
+mean <- 92.6
+sd <- 3.6
+x1 <- 95.4
+x2 <- 85.8
+
+z1 <- (x1 - mean)/sd
+z2 <- (x2 - mean)/sd
+print("Value of z1")
+print(z1)
+print("Value of z2")
+print(z2)
+```
+
+## 1.2
+
+```{r}
+print("standard deviations ABOVE the mean")
+print("standard deviations BELOW the mean")
+```
+
+## 1.3
+
+```{r}
+print("Because, opossum with the head length of 95.4 mm is more unusual than
+opossum with the head length of 85.8 m")
+```
+
+
+
+## Question 2
+
+Suppose the average number of Facebook friends is approximated well by the normal model N(mu = 1500, sigma = 300). Randomly selected person Julie has 1800 friends. 
+
+1. She would like to know what percentile she falls among other Facebook users? 
+2. What is the percentage of people that have more friends than Julie?
+
+### Solution
+## 2.1
+```{r}
+mu <- 1500
+sigma <- 300
+x <- 1800
+
+z <- (x - mu)/sigma
+z_score <- pnorm(z)
+print(z_score)
+
+percetage_juli <- z_score * 100
+percentile_juli <- 100 - percetage_juli
+
+print("percentile JULI falls among other Facebook users")
+print(percentile_juli)
+```
+
+## 2.2
+```{r}
+print("percentage of people that have more friends than Julie")
+print(percetage_juli)
+```
+
+
+
+
+## Question 3
+
+Suppose the average number of Facebook friends is approximated well by the normal model N(mu = 1500, sigma = 300). What is the probability that a randomly selected person has **AT LEAST** 1630 friends on Facebook? 
+
+NOTE: Round solution to 3 decimal places.
+
+### Solution
+```{r}
+x <- 1600
+mu <- 1500
+sigma <- 300
+
+z <- (x-mu)/sigma 
+z <- round(z , digit = 3)
+print(z)
+```
+
+
+## Question 4
+
+Suppose the average number of Facebook friends is approximated well by the normal model N(mu = 1500, sigma = 300). A randomly selected person is at the 79.95th percentile. How many Facebook friends does this person have?
+
+### Solution
+```{r}
+z <- qnorm(0.7995)
+sigma <- 300
+mu <- 1500 
+
+x <- (z * sigma) + mu 
+print("Facebook friends does this person have")
+x <- round(x)
+print(x)
+```
+
+
+## Question 5
+
+At Heinz factory the amounts which go into bottles of ketchup are supposed to be normally distributed with mean 36 oz. standard deviation 0.11 oz. Once every 30 minutes a bottle is selected from the production line, and its contents are noted precisely. If the amount of ketchup in the bottle is below 35.8 oz. or above 36.2 oz., then the bottle fails the quality control inspection. 
+
+1. What percentage of bottles have less than 35.8 ounces of ketchup?
+2. What percentage of bottles **PASS** the quality control inspection? 
+
+NOTE: Round solutions to 2 decimal places
+### Solution
+
+```{r}
+x1 <- 35.8 
+x2 <- 36.2
+mu <- 36
+sigma <- 0.11
+
+z1 <- (x1 - mu)/sigma
+z2 <- (x2 - mu)/sigma
+z1 <-round(z1, digits = 2)
+z2 <-round(z2, digits = 2)
+
+z1_score <- pnorm(z1)
+z2_score <- pnorm(z2)
+
+
+print("percentage of bottles have less than 35.8 ounces of ketchup is")
+percentage_1st <- (z2_score - z1_score) * 100
+
+print(percentage_1st)
+
+print(" percentage of bottles PASS the quality control inspection")
+print(100 - percentage_1st)
+
+
+```
+
+
+
+## Question 6
+
+Body temperatures of healthy humans are distributed nearly normally with mean 98.2F and standard deviation 0.73F. What is the cutoff for the lowest 3% of human body temperatures?  
+
+NOTE: Round solution to 1 decimal place.
+
+### Solution
+```{r}
+prob <- 0.03
+z <- qnorm(0.03)
+mu <- 98.2
+sigma <- 0.73
+
+x <- z * sigma + mu
+x <- round(x, digits = 1)
+print(x)
+```
+
+
+

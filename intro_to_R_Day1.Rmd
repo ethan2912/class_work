@@ -1,0 +1,124 @@
+---
+title: "Introduction to R"
+output:
+html_notebook:
+  toc: true
+  toc_float: true
+---
+
+```{r include = FALSE}
+# install.packages("tidyverse")
+# install.packages("plotly")
+library(tidyverse)
+library(plotly)
+
+```
+
+
+# Introduction
+
+First of all, let's examine the **cars** dataset. Display the first 6 rows.
+
+```{r echo=FALSE}
+
+head(cars)
+
+```
+
+This is the entire dataset.
+
+```{r echo=FALSE}
+
+cars
+
+```
+
+# LaTeX code
+
+$\frac{a+b}{c+d}$
+
+$$\lim\limits_{x \to \infty} \exp(-x) = 0$$
+
+# Exploratory Data Analysis
+
+Let's investigate the size and dimensionality of our dataset.
+
+```{r echo=FALSE}
+
+n_rows <- nrow(cars)
+
+n_cols <- ncol(cars)
+
+n_rows
+
+n_cols
+
+```
+
+The size is `r n_rows` and the dimensionality is `r n_cols`.
+
+## Variation within variables
+
+Let's investigate our dataset using a 5 number summary.
+
+```{r echo=FALSE}
+
+summary(cars)
+
+```
+
+Let's visualise our distributions using boxplots. This is using base R graphics.
+
+```{r echo=FALSE}
+boxplot(cars$speed)
+
+boxplot(cars$dist)
+```
+
+This is a ggplot alternative. 
+
+```{r}
+
+cars %>%
+  ggplot(aes(y=speed)) +
+  geom_boxplot()
+  # geom_histogram(binwidth=5)
+
+ggplotly()
+
+cars %>% 
+  ggplot(aes(y=dist)) +
+  geom_boxplot()
+
+ggplotly()
+```
+
+This is base R code for scatterplot.
+
+```{r}
+plot(cars)
+```
+
+
+This is a ggplot scatterplot
+
+```{r}
+xy_plot <- cars %>%
+  ggplot(aes(x=speed, y=dist)) +
+  geom_point() +
+  theme_bw()
+
+ggplotly(xy_plot)
+
+```
+
+
+```{r}
+round(cor(cars$speed,cars$dist),2)
+```
+
+
+
+
+
+
