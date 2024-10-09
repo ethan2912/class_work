@@ -1,0 +1,20 @@
+*Correlation
+ -Negative (weak, strong,Perfect)
+ -Positive (Moderate, strong,Perfect)
+ -Linear 
+ -Non Linear 
+
+*Frequency Tables
+ -Frequency column (example solved)
+ -Relative Frequency 
+ -percentages
+
+*Relation between categorical variables//CONTIGENCY TABLES//
+ -summarizes data for two categorical variables.
+
+*Boxplot
+
+*Histograms
+
+*Density curves
+

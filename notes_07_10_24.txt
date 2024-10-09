@@ -1,0 +1,26 @@
+Date: 07/10/24  Day: Monday
+
+*Measure of centrality
+ -Mean 
+ -Median 
+ -Mode
+
+*Measures of variablity 
+ -Variance
+ -Standar deviation (code for standard deviatio)
+ -orderd statistics (Quantile, percentile, Quartiles, Range, Interquartile Range)
+
+*Realation between numerical variables and covariance
+ -To access trend, we have to extrcat relationship between two numerical 
+  value.
+ -In simple way problem with covariance is we can't say that how is realtion(strong/weak) between the numbers but with the help of corelation term 
+  we can derive the strent of relation between two numbers.
+ -Refer the COVARIANCE & CORELATION numericals from lecture notes.
+* R practice sheets
+* R Studio Notebook preview (file is uploaded on canvas)
+
+
+
+ 
+
+

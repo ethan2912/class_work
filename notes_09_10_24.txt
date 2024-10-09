@@ -1,0 +1,48 @@
+*EVALUATING NORMAL DISTRIBUTION
+ -statistical tests
+ -visualization techniques(Right skew, Left skew, Short tails, Long tails)
+
+*SIGNIFICANCE TESTS
+
+*SAMPLING DISTRIBUTION
+ -sampling distribution represents the distribution of the point estimates based on samples   of a fixed size from a certain population.
+ -standard error tells us how much variation in distribution. 
+ - sampling distribution example
+	mu_100 = 95.61, mu_rad1_100 = 93.43, mu_rad2_100 = 95.30, mu_rad3_100 =94.60
+	mu = 94.52, sigmax = 1.92.
+	
+	The standard deviation of the sample mean sigmax tells us how far the typical estimate is away from the actualpopulation mean, 1.92 min.
+
+*CENTRAL LIMIT THEOREM FOR THE SAMPLE MEAN
+
+	x ~N(mean = mu, SE = sigma /sqrt(n) 
+	 
+	- SE represents standard error of the mean, which is defined as the standard 	  deviation of the sampling distribution,
+	- sigma is the standard deviation of the population, and
+	- n is the sample size
+
+ - In Case of SD of population is unknown, use the standard deviation of the 
+   sample(s) to approximate the standard error of the mean: 
+	
+	x ~N(mean = mu, SE = s/sqrt(n)
+ 
+*CENTRAL LIMIT THEOREM FOR THE SINGLE PROPORTION
+
+*CONFIDENCE INTERVALS – GENERAL FORMULA
+
+*CONFIDENCE INTERVALS
+
+*INTERPRETING CONFIDENCE INTERVAL
+
+*FORMULATION OF THE PRACTICAL PROBLEM IN TERMS OF STATISTICAL HYPOTHESE
+Null hypothesis (H0)
+Alternative Hypothesis (HA)
+
+- basically a standard with which the evidence for HA can be compared.
+- H0 is rejected in favour of HA
+- Conditions of hypothesis(page 115) 
+*TEST OF SINGLE MEAN mu USING THE Z STATISTIC
+*TEST OF THE COMPARISON OF TWO MEANS USING THE Z STATISTIC(Example)
+*Test of proporstions(Single Proportion, Comparison of Two Proportions) with  Examples
+*TEST BASED ON THE STUDENTS T-DISTRIBUTION 
+*

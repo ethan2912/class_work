@@ -1,0 +1,148 @@
+---
+title: "DSA8001 - Practicals & Solutions"
+output: 
+html_notebook:
+  toc: true
+  toc_float: true
+---
+
+```{r include=FALSE}
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(car)) install.packages("car")
+library(tidyverse)
+library(car)
+```
+
+
+# Statistical Inference
+
+## Test of single mean (mu) using the Z statistic
+
+### Question 1
+
+The mean content of a sample of 120 bottles of milk from one days output of a dairy was found to be 0.9975 litres, while the standard deviation of the sample was 0.012 litres. investigate if there is evidence to suggest that the mean content of that days output is different from 1 litre.
+
+#### Solution
+```{r}
+n <- 120
+x <- 0.9975 
+mu <- 1
+sigma <- 0.012
+se <- sqrt(sigma^2/n)
+print(se)
+
+z <- (x - mu)/se
+print(z)
+z_score <- pnorm(z)
+z_score <- round(z_score, digit =2)
+print(z_score)
+
+ci_1 <- (x - z_score * se)
+ci_2 <- (x + z_score * se)
+ci_1 <- round(ci_1, digits = 2)
+ci_2 <- round(ci_2, digits = 2)
+
+print(ci_1)
+print(ci_2)
+
+```
+
+
+
+## Test of the comparison of two means using the Z statistic
+
+### Question 2
+
+Suppose we wish to determine if there is a difference in mean weight between the two sexes in a particular bird species, at a 5% significance level. The following data were obtained: 
+
+* Male sample size n1 = 125, mean weight x1_bar = 92.31 g, and variaiance var1 = 56.22 g^2
+* Female sample size n2 = 85, mean weight x2_bar = 88.84 g, and variaiance var2 = 65.41 g^2
+
+If significant, give a 95% CI for mu1 - mu2.
+
+#### Solution
+```{r}
+n1 <- 125
+n2 <- 85
+x1_bar <- 92.31
+x2_bar <- 88.84
+var_1 <- 56.22
+var_2 <- 65.41
+
+z <- ((x1_bar - x2_bar)/sqrt((var_1/n1)+(var_2/n2)))
+print(z)
+
+m1 <- (x1_bar - x2_bar) - 1.96 * sqrt((var_1/n1)+(var_2/n2))
+m2 <- (x1_bar - x2_bar) + 1.96 * sqrt((var_1/n1)+(var_2/n2))
+
+m1 <- round(m1 , digits = 2)
+m2 <- round(m2 , digits = 2)
+print(m1)
+print(m2)
+
+
+```
+
+
+
+
+## Test of single proportion
+
+### Question 3
+
+In a random sample of 120 graduates, 78 spent 3 years at university and 42 more than 3 years. Test the hypothesis that 70% of graduates obtain degrees in 3 years. Give a 95% c.i. for the population proportion.
+
+NOTE: Round solution to 3 decimal places.
+
+#### Solution
+
+```{r}
+n1 <- 120 
+n2 <- 78
+ph <- 0.7
+p_bar <- n2/n1
+
+z <- (p_bar - ph)/sqrt((ph * (1 - ph))/120)
+z <- round(z, digits = 3)
+print(z)
+```
+
+
+
+
+## Test of two proportions
+
+### Question 4
+
+We wish to compare the germination rates of spinach seeds for two different methods of preparation:
+
+* __Method A:__ 80 seeds sown, 65 germinate
+* __Method B:__ 90 seeds sown, 80 germinate
+
+
+NOTE: Round solution to 3 decimal places.
+
+#### Solution
+
+```{r}
+x1 <- 80 
+x1_bar <- 65
+x2 <- 90
+x2_bar <- 80
+
+ph <- (x1 + x1_bar)/(x2 + x2_bar)
+
+ph1 <- x1_bar/x1
+ph2 <- x2_bar/x2
+
+print(ph1)
+print(ph2)
+
+z <- (ph1 - ph2)/sqrt(ph*(1-ph)*(1/x1 + 1/x2))
+z <- round(z, digits = 3)
+print(z)
+```
+
+
+
+
